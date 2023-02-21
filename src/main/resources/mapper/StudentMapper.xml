@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.StudentMapper">
+
+    <insert id="add">
+        insert into studentall
+        values (#{sid}, #{name}, #{age}, #{major}, #{grade}, #{loveSubj})
+    </insert>
+    <update id="update">
+        UPDATE studentall
+        SET name=#{name},
+            age=#{age},
+            major=#{major},
+            grade=#{grade},
+            loveSubj=#{loveSubj}
+        WHERE sid = #{sid}
+    </update>
+
+    <delete id="delete">
+        delete
+        from studentall
+        where sid = #{sid}
+    </delete>
+
+    <select id="selectAll" resultType="pojo.Student">
+        select *
+        from studentAll
+    </select>
+    <select id="selectBySid" resultType="pojo.Student">
+        select *
+        from studentAll
+        where sid = #{sid}
+    </select>
+
+
+</mapper>
